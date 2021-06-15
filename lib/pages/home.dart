@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:android_police_rss/classes/feed.dart';
 import 'package:android_police_rss/configs/settingsPage.dart';
-import 'package:android_police_rss/widgets/newsCardBig.dart';
 import 'package:android_police_rss/widgets/newsCardSmall.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -90,7 +89,7 @@ class _HomeState extends State<Home> {
                         itemBuilder: (context, index) {
                          return ListTile(
                            title: Text(articlesList[index].title.toString()),
-                           onTap: _launchBrowser(articlesList[index].link.toString()),
+                           //onTap: _launchBrowser('oi'),
                          );
                         },
                       ),
