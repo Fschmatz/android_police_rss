@@ -87,10 +87,12 @@ class _HomeState extends State<Home> {
                         shrinkWrap: true,
                         itemCount: articlesList.length,
                         itemBuilder: (context, index) {
-                         return ListTile(
-                           title: Text(articlesList[index].title.toString()),
-                           //onTap: _launchBrowser('oi'),
-                         );
+                         return NewsCardSmall(feed:
+                         Feed(linkImagem: '',
+                             data: articlesList[index].pubDate.toString()!,
+                             title: articlesList[index].title!,
+                             link: articlesList[index].link!
+                         ));
                         },
                       ),
                       const SizedBox(

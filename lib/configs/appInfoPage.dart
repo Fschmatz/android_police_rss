@@ -5,11 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 class AppInfoPage extends StatelessWidget {
 
   _launchGithub()  {
-    const url = 'https://github.com/Fschmatz/arstechnica_fschmtz';
+    const url = 'https://github.com/Fschmatz/android_police_rss';
     launch(url);
   }
 
-  Color themeColorApp = Color(0xFF6184C1);
+  Color themeColorApp = Color(0xFF3DDC84);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AppInfoPage extends StatelessWidget {
           const SizedBox(height: 20),
           CircleAvatar(
             radius: 55,
-            backgroundColor: Colors.blueAccent[100],
+            backgroundColor: Colors.pink,
             child: CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/avatar.jpg'),
@@ -91,7 +91,7 @@ class AppInfoPage extends StatelessWidget {
                     color: themeColorApp)),
           ),
           ListTile(
-            //onTap: () {_launchGithub();},
+            onTap: () {_launchGithub();},
             leading: Icon(Icons.open_in_new_outlined),
             title: Text("View on GitHub",
                 style: TextStyle(
@@ -112,7 +112,7 @@ class AppInfoPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
-              "A clever person solves a problem. A wise person avoids it.\nAlbert Einstein",
+              "Knowledge, like air, is vital to life. Like air, no one should be denied it.\nAlan Moore",
               style: TextStyle(fontSize: 16),
             ),
           ),

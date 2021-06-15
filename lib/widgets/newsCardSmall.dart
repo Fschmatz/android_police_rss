@@ -34,7 +34,7 @@ class _NewsCardSmallState extends State<NewsCardSmall> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ClipRRect(
+               /* ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     child: widget.feed.linkImagem
                         .contains('http://feeds.feedburner.com/~ff/arstechnica/')
@@ -49,18 +49,19 @@ class _NewsCardSmallState extends State<NewsCardSmall> {
                         placeholder: "assets/placeholder.jpg",
                         width: 100,
                         height: 75,
-                        fit: BoxFit.fill)),
-                const SizedBox(width : 10),
+                        fit: BoxFit.fill)),*/
+                //const SizedBox(width : 10),
                 Flexible(
                   child: Text(
                     widget.feed.title,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 5, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 4),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -79,6 +80,7 @@ class _NewsCardSmallState extends State<NewsCardSmall> {
                       icon: Icon(Icons.share_outlined),
                       constraints: BoxConstraints(maxHeight: 30),
                       iconSize: 21,
+                      splashRadius: 26,
                       onPressed: () {
                         Share.share(widget.feed.link);
                       }),
