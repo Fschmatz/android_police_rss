@@ -8,6 +8,7 @@ class NewsTile extends StatefulWidget {
   _NewsTileState createState() => _NewsTileState();
 
   Feed feed;
+
   NewsTile({Key? key, required this.feed}) : super(key: key);
 }
 
@@ -37,37 +38,39 @@ class _NewsTileState extends State<NewsTile> {
                 Flexible(
                   child: Text(
                     widget.feed.title,
-                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 5, 0, 4),
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      const SizedBox(height: 10,),
-                      Text(
-                        widget.feed.DataFormatada,
-                        style: TextStyle(
-                            fontSize: 12.5, color: Theme.of(context).hintColor),
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 3, 0, 0),
+                    child: Text(
+                      widget.feed.DataFormatada,
+                      style: TextStyle(
+                          fontSize: 12.5, color: Theme.of(context).hintColor),
+                    ),
                   ),
 
-                  IconButton(
-                      color: Theme.of(context).hintColor,
-                      icon: Icon(Icons.share_outlined),
-                      constraints: BoxConstraints(maxHeight: 30),
-                      iconSize: 21,
-                      splashRadius: 26,
-                      onPressed: () {
-                        Share.share(widget.feed.link);
-                      }),
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.share_outlined, size: 16.0,color: Theme.of(context).textTheme.headline6!.color,),
+                    label: Text("Share",style: TextStyle(fontSize: 13,color: Theme.of(context).textTheme.headline6!.color),),
+                    onPressed: () {
+                      Share.share(widget.feed.link);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      primary: Theme.of(context).cardTheme.color,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

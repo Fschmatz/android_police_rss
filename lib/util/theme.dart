@@ -8,7 +8,7 @@ ThemeData light = ThemeData(
     accentColor: Colors.green[700],
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
     cardTheme: CardTheme(
-      color: Color(0xFFF5F5F5),
+      color: Color(0xFFF1F1F1),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFFF9F9F9),
@@ -24,30 +24,10 @@ ThemeData dark = ThemeData(
     accentColor: Color(0xFF1DA156),
     scaffoldBackgroundColor: Color(0xFF202022),
     cardTheme: CardTheme(
-      color: Color(0xFF2D2D2F),
+      color: Color(0xFF2A2A2C),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF2D2D2F),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(
-            vertical: 15.0, horizontal: 10.0),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFF4CB357),
-          ),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            borderRadius: BorderRadius.circular(15.0)),
-        border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            borderRadius: BorderRadius.circular(15.0))
     ),
     bottomAppBarColor: Color(0xFF171719),
     bottomSheetTheme:
@@ -72,9 +52,7 @@ class ThemeNotifier extends ChangeNotifier {
   }
 
   _initPrefs() async {
-    if (prefs == null) {
       prefs = await SharedPreferences.getInstance();
-    }
   }
 
   _loadFromPrefs() async {
