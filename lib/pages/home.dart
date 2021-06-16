@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:android_police_rss/classes/feed.dart';
 import 'package:android_police_rss/configs/settingsPage.dart';
-import 'package:android_police_rss/widgets/newsCardSmall.dart';
+import 'package:android_police_rss/widgets/newsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:webfeed/webfeed.dart';
@@ -13,19 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static const String feedUrl =
-      'https://www.androidpolice.com/feed/';
+  static const String feedUrl = 'https://www.androidpolice.com/feed/';
   List<RssItem> articlesList = [];
   bool loading = true;
-
-  //URL LAUNCHER
-  _launchBrowser(String url) async {
-    if (await launch(url)) {
-      await launch(url);
-    } else {
-      throw 'Error';
-    }
-  }
 
   @override
   void initState() {
@@ -74,10 +64,13 @@ class _HomeState extends State<Home> {
         duration: Duration(milliseconds: 500),
         child: loading
             ? Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).accentColor,
+                ),
               )
             : RefreshIndicator(
                 onRefresh: getRssData,
+                color: Theme.of(context).accentColor,
                 child: ListView(
                     physics: AlwaysScrollableScrollPhysics(),
                     children: [
@@ -87,12 +80,11 @@ class _HomeState extends State<Home> {
                         shrinkWrap: true,
                         itemCount: articlesList.length,
                         itemBuilder: (context, index) {
-                         return NewsCardSmall(feed:
-                         Feed(linkImagem: '',
-                             data: articlesList[index].pubDate.toString()!,
-                             title: articlesList[index].title!,
-                             link: articlesList[index].link!
-                         ));
+                          return NewsTile(
+                              feed: Feed(
+                                  data: articlesList[index].pubDate!.toString(),
+                                  title: articlesList[index].title!,
+                                  link: articlesList[index].link!));
                         },
                       ),
                       const SizedBox(

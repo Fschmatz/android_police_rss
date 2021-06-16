@@ -19,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
   }
 
-  Color themeColorApp = Color(0xFF3DDC84);
+  Color themeColorApp = Color(0xFF1DA156);
 
   @override
   Widget build(BuildContext context) {

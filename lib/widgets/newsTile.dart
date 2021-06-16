@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NewsCardSmall extends StatefulWidget {
+class NewsTile extends StatefulWidget {
   @override
-  _NewsCardSmallState createState() => _NewsCardSmallState();
+  _NewsTileState createState() => _NewsTileState();
 
   Feed feed;
-  NewsCardSmall({Key? key, required this.feed}) : super(key: key);
+  NewsTile({Key? key, required this.feed}) : super(key: key);
 }
 
-class _NewsCardSmallState extends State<NewsCardSmall> {
+class _NewsTileState extends State<NewsTile> {
   //URL LAUNCHER
   _launchBrowser(String url) async {
     if (await launch(url)) {
@@ -34,23 +34,6 @@ class _NewsCardSmallState extends State<NewsCardSmall> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-               /* ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    child: widget.feed.linkImagem
-                        .contains('http://feeds.feedburner.com/~ff/arstechnica/')
-                        ? FadeInImage.assetNetwork(
-                        image: "assets/placeholder.jpg",
-                        placeholder: "assets/placeholder.jpg",
-                        width: 100,
-                        height: 75,
-                        fit: BoxFit.fill)
-                        : FadeInImage.assetNetwork(
-                        image: widget.feed.linkImagem,
-                        placeholder: "assets/placeholder.jpg",
-                        width: 100,
-                        height: 75,
-                        fit: BoxFit.fill)),*/
-                //const SizedBox(width : 10),
                 Flexible(
                   child: Text(
                     widget.feed.title,
@@ -75,6 +58,7 @@ class _NewsCardSmallState extends State<NewsCardSmall> {
                       ),
                     ],
                   ),
+
                   IconButton(
                       color: Theme.of(context).hintColor,
                       icon: Icon(Icons.share_outlined),

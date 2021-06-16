@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
     brightness: Brightness.light,
     primaryColor: Color(0xFFFFFFFF),
-    accentColor: Colors.blueAccent,
+    accentColor: Colors.green[700],
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
     cardTheme: CardTheme(
       color: Color(0xFFF5F5F5),
@@ -21,7 +21,7 @@ ThemeData light = ThemeData(
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Color(0xFF202022),
-    accentColor: Color(0xFF3DDC84),
+    accentColor: Color(0xFF1DA156),
     scaffoldBackgroundColor: Color(0xFF202022),
     cardTheme: CardTheme(
       color: Color(0xFF2D2D2F),
