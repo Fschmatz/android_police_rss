@@ -53,16 +53,22 @@ class _NewsTileState extends State<NewsTile> {
                     child: Text(
                       widget.feed.DataFormatada,
                       style: TextStyle(
-                          fontSize: 12.5, color: Theme.of(context).hintColor),
+                          fontSize: 12.5, color: Theme.of(context).accentColor),
                     ),
                   ),
-
-                  ElevatedButton.icon(
-                    icon: Icon(Icons.share_outlined, size: 16.0,color: Theme.of(context).textTheme.headline6!.color,),
-                    label: Text("Share",style: TextStyle(fontSize: 13,color: Theme.of(context).textTheme.headline6!.color),),
+                  TextButton(
                     onPressed: () {
                       Share.share(widget.feed.link);
                     },
+                    child: Icon(
+                      Icons.share_outlined,
+                      size: 18.0,
+                      color: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .color!
+                          .withOpacity(0.7),
+                    ),
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
                       primary: Theme.of(context).cardTheme.color,
