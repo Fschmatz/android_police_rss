@@ -1,11 +1,13 @@
 class Changelog{
 
-  static String appVersion = "1.1.1";
+  static String appVersion = "1.1.2";
   static String appName = "Android Police Rss Fschmtz";
 
   static String changelogCurrent = '''  
-1.1.1
+1.1.2
 - UI Changes
+- Added Link to Comments
+- Filter Sponsored Posts Out
 ''';
 
   static String changelogsOld = '''

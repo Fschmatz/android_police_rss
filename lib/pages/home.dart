@@ -5,7 +5,6 @@ import 'package:android_police_rss/widgets/newsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:webfeed/webfeed.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -75,16 +74,31 @@ class _HomeState extends State<Home> {
                     physics: AlwaysScrollableScrollPhysics(),
                     children: [
                       ListView.separated(
-                        separatorBuilder: (context, index) => const Divider(),
+                        separatorBuilder: (context, index) {
+                          if (!articlesList[index]
+                              .categories![1]
+                              .value
+                              .contains('Sponsored')) {
+                            return const Divider();
+                          }
+                          return SizedBox.shrink();
+                        },
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: articlesList.length,
                         itemBuilder: (context, index) {
-                          return NewsTile(
+                          if (!articlesList[index]
+                              .categories![1]
+                              .value
+                              .contains('Sponsored')) {
+                            return NewsTile(
                               feed: Feed(
                                   data: articlesList[index].pubDate!.toString(),
                                   title: articlesList[index].title!,
-                                  link: articlesList[index].link!));
+                                  link: articlesList[index].link!),
+                            );
+                          }
+                          return SizedBox.shrink();
                         },
                       ),
                       const SizedBox(
