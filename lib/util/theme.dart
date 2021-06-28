@@ -24,7 +24,7 @@ ThemeData dark = ThemeData(
     accentColor: Color(0xFF3bb871),
     scaffoldBackgroundColor: Color(0xFF202022),
     cardTheme: CardTheme(
-      color: Color(0xFF2A2A2C),
+      color: Color(0xFF29292B),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF2D2D2F),
