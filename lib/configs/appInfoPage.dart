@@ -9,10 +9,11 @@ class AppInfoPage extends StatelessWidget {
     launch(url);
   }
 
-  Color themeColorApp = Color(0xFF3bb871);
-
   @override
   Widget build(BuildContext context) {
+
+    Color themeColorApp = Theme.of(context).accentColor;
+
     return Scaffold(
         appBar: AppBar(
           title: Text("App Info"),

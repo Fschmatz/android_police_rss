@@ -15,7 +15,7 @@ class NewsTile extends StatefulWidget {
 class _NewsTileState extends State<NewsTile> {
   //URL LAUNCHER
   _launchBrowser(String url) async {
-    if (await launch(url)) {
+    if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Error';
@@ -49,19 +49,20 @@ class _NewsTileState extends State<NewsTile> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 3, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                     child: Text(
                       widget.feed.formattedDate,
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
                           color:
-                              Theme.of(context).accentColor.withOpacity(0.9)),
+                              Theme.of(context).accentColor.withOpacity(0.8)),
                     ),
                   ),
                   Row(
                     children: [
                       Container(
-                        width: 50,
+                        width: 55,
                         child: TextButton(
                           onPressed: () {
                             _launchBrowser(widget.feed.link + '#comments');
@@ -89,7 +90,7 @@ class _NewsTileState extends State<NewsTile> {
                         width: 20,
                       ),
                       Container(
-                        width: 50,
+                        width: 55,
                         child: TextButton(
                           onPressed: () {
                             Share.share(widget.feed.link);
