@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
     var response = await client.get(Uri.parse(feedUrl));
     var channel = RssFeed.parse(response.body);
     setState(() {
-      articlesList = channel.items!.toList();
+      articlesList = channel.items!.take(20).toList();
       loading = false;
     });
     client.close();
@@ -37,7 +37,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
         title: Text('Android Police'),
         actions: [
           IconButton(
@@ -75,30 +74,18 @@ class _HomeState extends State<Home> {
                     children: [
                       ListView.separated(
                         separatorBuilder: (context, index) {
-                          if (!articlesList[index]
-                              .categories![1]
-                              .value
-                              .contains('Sponsored')) {
-                            return const Divider();
-                          }
-                          return SizedBox.shrink();
+                          return const Divider();
                         },
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: articlesList.length,
                         itemBuilder: (context, index) {
-                          if (!articlesList[index]
-                              .categories![1]
-                              .value
-                              .contains('Sponsored')) {
-                            return NewsTile(
-                              feed: Feed(
-                                  data: articlesList[index].pubDate!.toString(),
-                                  title: articlesList[index].title!,
-                                  link: articlesList[index].link!),
-                            );
-                          }
-                          return SizedBox.shrink();
+                          return NewsTile(
+                            feed: Feed(
+                                data: articlesList[index].pubDate!.toString(),
+                                title: articlesList[index].title!,
+                                link: articlesList[index].link!),
+                          );
                         },
                       ),
                       const SizedBox(

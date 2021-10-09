@@ -7,6 +7,16 @@ ThemeData light = ThemeData(
     primaryColor: Color(0xFFFFFFFF),
     accentColor: Colors.green[700],
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
+    appBarTheme: const AppBarTheme(
+        color: Color(0xFFFFFFFF),
+        elevation: 0,
+        iconTheme: IconThemeData(
+            color: Color(0xFF000000)
+        ),
+        titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF000000))),
     cardTheme: CardTheme(
       color: Color(0xFFF1F1F1),
     ),
@@ -26,6 +36,13 @@ ThemeData dark = ThemeData(
     cardTheme: CardTheme(
       color: Color(0xFF29292B),
     ),
+    appBarTheme: const AppBarTheme(
+        color: Color(0xFF202022),
+        elevation: 0,
+        titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFFFFFFFF))),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF2D2D2F),
     ),
